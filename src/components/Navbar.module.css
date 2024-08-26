@@ -1,0 +1,16 @@
+/* src/components/Navbar.module.css */
+.ant-btn-secondary {
+    background-color: gray;
+    color: black;
+    border: 1px solid #ccc;
+  }
+  
+  .ant-btn-secondary:hover {
+    background-color: #d4d4d4;
+    color: black;
+  }
+  
+  .ant-btn-secondary:focus {
+    background-color: #d4d4d4;
+    color: black;
+  }

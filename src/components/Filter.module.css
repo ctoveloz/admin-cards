@@ -1,0 +1,11 @@
+/* src/components/Filter.module.css */
+.filter {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+  }
