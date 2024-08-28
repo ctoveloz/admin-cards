@@ -1,4 +1,3 @@
-// src/App.tsx
 import React, { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -59,18 +58,22 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <Navbar />
-      <div className="container-fluid">
-        <Filter
-          administradoras={uniqueAdministradoras}
-          selectedAdministradora={selectedAdministradora}
-          onAdministradoraChange={setSelectedAdministradora}
-        />
-        <Routes>
-          <Route path="cards" element={<CardPage cards={filteredCards} deleteCard={deleteCard} />} />
-          <Route path="add-card" element={<AddCardPage addCard={addCard} />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Navbar />
+            <div className="container-fluid">
+              <Filter
+                administradoras={uniqueAdministradoras}
+                selectedAdministradora={selectedAdministradora}
+                onAdministradoraChange={setSelectedAdministradora}
+              />
+              <CardPage cards={filteredCards} deleteCard={deleteCard} />
+            </div>
+          </>
+        } />
+        <Route path="/add-admin" element={<AddCardPage addCard={addCard} />} />
+      </Routes>
     </Router>
   );
 };

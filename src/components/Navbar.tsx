@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TiThMenu, TiPlus } from "react-icons/ti";
 import { FaExclamation } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
@@ -8,9 +8,14 @@ import { PiPrinterBold } from "react-icons/pi";
 const Navbar: React.FC = () => {
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleNavbar = () => setIsCollapsed(!isCollapsed);
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
+    const handleAddCardClick = () => {
+        navigate('/add-admin');
+    };
 
     return (
         <nav className="navbar navbar-expand-lg">
@@ -31,11 +36,9 @@ const Navbar: React.FC = () => {
                         </li>
                     </ul>
                     <div className="ml-auto d-flex align-items-center">
-                        <Link to="/add-card">
-                            <button className="btn btn-light mr-2">
-                                <TiPlus /> Incluir
-                            </button>
-                        </Link>
+                        <button className="btn btn-light mr-2" onClick={handleAddCardClick}>
+                            <TiPlus /> Incluir
+                        </button>
                         <button className="btn btn-light mr-2">
                             <FaExclamation /> Alterar
                         </button>
